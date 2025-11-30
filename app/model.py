@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-class TingBinaryClassifier(nn.Module):
+class TinyBinaryClassifier(nn.Module):
     def __init__(self):
         super().__init__()
         self.net = nn.Sequential(

@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.utils.data import TensorDataset, DataLoader
-from model import TingBinaryClassifier
+from model import TinyBinaryClassifier
 
 # Create fake data
 X = torch.randn(500, 4)     # 500 samples, each 4 features
@@ -11,7 +11,7 @@ dataset = TensorDataset(X, y)
 loader = DataLoader(dataset, batch_size=32, shuffle=True)
 
 # Initialize model, loss , optimizer
-model = TingBinaryClassifier(X, y)
+model = TinyBinaryClassifier()
 loss_fn = nn.BCELoss()
 opt = torch.optim.Adam(model.parameters(), lr=0.01)
 
