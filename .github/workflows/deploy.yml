@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout
       uses: actions/checkout@v3
 
     - name: Authenticate to Google Cloud
@@ -18,27 +18,30 @@ jobs:
       with:
         credentials_json: ${{ secrets.GCLOUD_SERVICE_KEY }}
 
-    - name: Set up Google Cloud SDK
+    - name: Set up Cloud SDK
       uses: google-github-actions/setup-gcloud@v1
       with:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
 
-    - name: Authenticate Docker to Artifact Registry
+    - name: Configure Docker auth
       run: |
         gcloud auth configure-docker ${{ secrets.GCP_REGION }}-docker.pkg.dev
 
-    - name: Build Docker image
+    - name: Set IMAGE variable
       run: |
-        echo "IMAGE=${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.REPOSITORY_NAME }}/model-api:latest" >> $GITHUB_ENV
-        docker build -t $IMAGE .
+        IMAGE="${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.REPOSITORY_NAME }}/model-api:latest"
+        echo "IMAGE=$IMAGE" >> $GITHUB_ENV
+
+    - name: Build Docker image
+      run: docker build -t "$IMAGE" .
 
     - name: Push Docker image
-      run: docker push $IMAGE
+      run: docker push "$IMAGE"
 
     - name: Deploy to Cloud Run
       run: |
         gcloud run deploy ${{ secrets.CLOUD_RUN_SERVICE }} \
-          --image $IMAGE \
+          --image "$IMAGE" \
           --region ${{ secrets.GCP_REGION }} \
           --platform managed \
           --allow-unauthenticated \
