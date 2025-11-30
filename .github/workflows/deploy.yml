@@ -31,8 +31,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        IMAGE=${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.REPOSITORY_NAME }}/model-api:latest
-        echo "IMAGE=$IMAGE" >> $GITHUB_ENV
+        echo "IMAGE=${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.REPOSITORY_NAME }}/model-api:latest" >> $GITHUB_ENV
         docker build -t $IMAGE .
 
     - name: Push Docker image to Artifact Registry
