@@ -40,9 +40,11 @@ jobs:
 
     - name: Deploy to Cloud Run
       uses: google-github-actions/deploy-cloudrun@v2
+      env:
+        IMAGE: ${{ env.IMAGE }}
       with:
         service: ${{ secrets.CLOUD_RUN_SERVICE }}
-        image: $IMAGE
+        image: ${{ env.IMAGE }}
         region: ${{ secrets.GCP_REGION }}
         allow_unauthenticated: true
         flags: --port=8000 --memory=1Gi
