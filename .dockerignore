@@ -1,0 +1,10 @@
+.git
+.github
+__pycache__/
+.venv
+.env
+*.pyc
+mlruns
+key.json
+README.md
+Dockerfile

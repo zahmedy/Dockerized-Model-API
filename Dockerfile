@@ -1,12 +1,15 @@
 FROM python:3.12-slim
 
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
 WORKDIR /app
 
-# install dependencies first (cache friendly)
+# Install dependencies first (cache friendly)
 COPY app/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the est of the app ( model + app)
+# Copy application code and model artifact
 COPY app/ .
 
 EXPOSE 8000
