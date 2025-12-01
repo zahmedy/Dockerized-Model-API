@@ -1,0 +1,23 @@
+artifact_path: file:///Users/zayed/Desktop/learning/Dockerized-Model-API/mlruns/296077003725762281/models/m-d7025feabfa040c4b886831d85f01801/artifacts
+flavors:
+  python_function:
+    config:
+      device: null
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pytorch
+    pickle_module_name: mlflow.pytorch.pickle_module
+    python_version: 3.13.5
+  pytorch:
+    code: null
+    model_data: data
+    pytorch_version: 2.9.1
+mlflow_version: 3.6.0
+model_id: m-d7025feabfa040c4b886831d85f01801
+model_size_bytes: 4005
+model_uuid: m-d7025feabfa040c4b886831d85f01801
+prompts: null
+run_id: 324568087d184cf8a13321b8cf416065
+utc_time_created: '2025-12-01 13:07:04.798169'

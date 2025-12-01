@@ -1,0 +1,10 @@
+artifact_location: file:///Users/zayed/Desktop/learning/Dockerized-Model-API/mlruns/296077003725762281/models/m-d7025feabfa040c4b886831d85f01801/artifacts
+creation_timestamp: 1764594424793
+experiment_id: '296077003725762281'
+last_updated_timestamp: 1764594426277
+model_id: m-d7025feabfa040c4b886831d85f01801
+model_type: null
+name: model
+source_run_id: 324568087d184cf8a13321b8cf416065
+status: 2
+status_message: null

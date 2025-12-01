@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/zayed/Desktop/learning/Dockerized-Model-API/mlruns/296077003725762281/324568087d184cf8a13321b8cf416065/artifacts
+end_time: 1764594426278
+entry_point_name: ''
+experiment_id: '296077003725762281'
+lifecycle_stage: active
+run_id: 324568087d184cf8a13321b8cf416065
+run_name: placid-shrimp-183
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764594424685
+status: 3
+tags: []
+user_id: zayed
