@@ -39,5 +39,10 @@ jobs:
       run: docker push "$IMAGE"
 
     - name: Deploy to Cloud Run
-      shell: bash
-      run: gcloud run deploy ${{ secrets.CLOUD_RUN_SERVICE }} --image "$IMAGE" --region "${{ secrets.GCP_REGION }}" --platform managed --allow-unauthenticated --port 8000 --memory 1Gi
+      uses: google-github-actions/deploy-cloudrun@v2
+      with:
+        service: ${{ secrets.CLOUD_RUN_SERVICE }}
+        image: $IMAGE
+        region: ${{ secrets.GCP_REGION }}
+        allow_unauthenticated: true
+        flags: --port=8000 --memory=1Gi
